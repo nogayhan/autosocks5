@@ -60,7 +60,7 @@ for ((i = 7000; i <= 7010; i++))
       echo "curl --socks5 ${user}:${pass}@$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1):${i} ident.me; echo"
     done
 
-echo "Your proxy list"
+echo "[!] Your proxy list"
 for ((i = 7000; i <= 7010; i++))
     do
       echo "${user}:${pass}@$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1):${i}"
