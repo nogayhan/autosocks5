@@ -17,7 +17,7 @@ ext_interface () {
 
 echo "[4] - Adding a config server"
 echo "logoutput: stderr" > /etc/danted.conf
-for ((i = 7000; i <= 7010; i++))
+for ((i = 7000; i <= 8001; i++))
     do
         echo "internal: $(ext_interface) port = $i" >> /etc/danted.conf
         echo "[5] - Adding rules to the server"
