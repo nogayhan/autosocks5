@@ -17,7 +17,7 @@ ext_interface () {
 
 echo "[4] - Adding a config server"
 echo "logoutput: stderr" > /etc/danted.conf
-for ((i = 7000; i <= 8001; i++))
+for ((i = 30000; i <= 30500; i++))
     do
         echo "internal: $(ext_interface) port = $i" >> /etc/danted.conf
         echo "[5] - Adding rules to the server"
@@ -49,19 +49,19 @@ systemctl restart danted
 systemctl enable danted
 
 echo "[8] - Checking proxy availability"
-for ((i = 7000; i <= 8001; i++))
+for ((i = 30000; i <= 30500; i++))
     do
       curl --socks5 ${user}:${pass}@$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1):${i} ident.me; echo
     done
 
 echo "[9] - For manual testing"
-for ((i = 7000; i <= 8001; i++))
+for ((i = 30000; i <= 30500; i++))
     do
       echo "curl --socks5 ${user}:${pass}@$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1):${i} ident.me; echo"
     done
 
 echo "[!] Your proxy list"
-for ((i = 7000; i <= 8001; i++))
+for ((i = 30000; i <= 30500; i++))
     do
       echo "${user}:${pass}@$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1):${i}"
     done
